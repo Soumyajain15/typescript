@@ -85,32 +85,155 @@ type admin= user&{
 */
 // This is a class definition in TypeScript
 // A class is a blueprint for creating objects with specific properties and methods
-var Bottle = /** @class */ (function () {
-    function Bottle() {
-        this.radius = 120;
-        this.price = 100;
-        this.color = "white";
-    }
-    return Bottle;
-}());
-var b1 = new Bottle();
+/*
+class Bottle{
+    radius=120;
+    price=100;
+    color="white";
+
+}
+let b1=new Bottle();
 // constructor is a special method for creating and initializing an object created with a class
 // The constructor is called when an instance of the class is created
-var botlegar = /** @class */ (function () {
-    function botlegar(name, price) {
-        this.name = name;
-        this.price = price;
-    }
-    return botlegar;
-}());
-var b2 = new botlegar("whisky bottle", 10000);
-var humanmaker = /** @class */ (function () {
-    function humanmaker(name, isHandsome) {
-        this.name = name;
-        this.isHandsome = isHandsome;
-        this.age = 0;
-    }
-    return humanmaker;
-}());
+class botlegar{
+    constructor(public name:string,public price:number){}
+}
+let b2=new botlegar("whisky bottle", 10000);
+class humanmaker{
+    age=0;
+    constructor(public name: string,public isHandsome:boolean){}
+}
 new humanmaker("John", true);
 // This is a class with a constructor that initializes the properties 'name' and 'isHand'
+class Music{
+    constructor(public name:string,public singer:string,public price:number){}
+
+    // This method returns a string representation of the Music object
+    getDetails():string{
+        return `Music Name: ${this.name}, Singer: ${this.singer}, Price: ${this.price}`;
+    }
+}
+
+
+class abcd{
+    name="John";
+changename(){
+    this.name="Doe";
+    console.log(this.name);
+}
+}
+// This is a class with a method that changes the name property and logs it to the console
+class bootlemaker{
+    constructor(public name:string,public price:number=1000){
+       this.name=name;
+    }
+}
+    let a1=new bootlemaker("milton");
+// This is a class with a constructor that initializes the properties 'name' and 'price'
+//access modifiers
+
+
+class bootlegar{
+    constructor(public name:string){
+        
+    }
+}
+class metalbootlegar  extends bootlegar{
+    constructor(name:string){
+        super(name); // Call the constructor of the parent class
+    }
+    getvalue(){
+        console.log(`The value of the bootlegar is: ${this.name}`);
+    }
+}
+let c1=new metalbootlegar("milton");
+c1.name="gsjdbasdhj"; // This is allowed because 'name' is public
+c1.getvalue(); // This will call the method from the child class and log the value of 'name'
+
+
+class user{
+    constructor(public name:string){}
+     changename(){
+        this.name="doe";  // readonly property cannot be changed used along with public
+}
+}
+let u1=new user("john");
+// This is a class with a method that changes the name property
+u1.changename(); // This will change the name to "doe"
+
+class user1{
+    constructor(public name:string,public age:number){}
+        getname(){
+            return this.name;
+        }
+        setname(value:string){
+            this.name=value; // This setter allows changing the name property
+        }
+}
+let u2=new user1("john", 25);
+u2.setname("doe"); // This will change the name to "doe"
+
+class sam{
+    static version =1.0;
+    static getRandomNumber(){
+        return Math.random();
+    }
+}
+let sh1=new sam();
+// This is a class with a static property 'version' and a static method 'getRandomNumber
+
+*/
+/*
+
+function ac(name:string,cb:(value:string)=>void){
+    // This function takes a name and a callback function as parameters
+    // The callback function is called with the name as an argument
+    cb("hey");
+
+}
+ac("harsh",(value:string)=>{
+    console.log(value);
+})
+
+
+//rest and spread operator
+// The rest operator allows a function to accept an indefinite number of arguments as an array
+function abcde(...args:number[]){
+console.log(args);
+}
+abcde(1,2,3,4,5); // This function can take any number of arguments of type number
+var arr1=[1,2,3,4,5];
+// The spread operator allows an array to be expanded into individual elements
+var arr2=[...arr1];
+console.log(arr2); // This will log the elements of arr1 as individual elements in arr2
+
+
+//function overloading
+function abcds(a:string):void;
+function abcds(a:string,b:number):number;
+function abcds(a:any,b?:number):any{
+    if(typeof a==="string" && b===undefined){
+        console.log(a);
+}
+if(typeof a==="string" && typeof b==="number"){
+    return a+b; // This will return the concatenation of the string and number
+}
+else throw new Error("somethin went wrong");
+}
+abcds("hey");
+abcds("hey",123);
+*/
+//generic function
+// A generic function allows you to create a function that can work with any data type
+function abcds1(a, b, c) {
+}
+abcds1("hello", "world", 123); // This will call the function with a string type for 'a'
+function abcdh(obj) { }
+abcdh({ name: "halua", price: 100, key: "key1" }); // This will call the function with an object that has a string type for 'key'
+//typecasting
+// Type casting is used to convert a variable from one type to another
+var a = 12;
+a.toString(); // This will convert 'a' to a string
+a.toString(); // This is another way to do type casting in TypeScript
+console.log(a);
+console.log(typeof a);

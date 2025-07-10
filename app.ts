@@ -87,6 +87,7 @@ type admin= user&{
 */
 // This is a class definition in TypeScript
 // A class is a blueprint for creating objects with specific properties and methods
+/*
 class Bottle{
     radius=120;
     price=100;
@@ -173,3 +174,78 @@ class user1{
 }
 let u2=new user1("john", 25);
 u2.setname("doe"); // This will change the name to "doe"
+
+class sam{
+    static version =1.0;
+    static getRandomNumber(){
+        return Math.random();
+    }
+}
+let sh1=new sam();
+// This is a class with a static property 'version' and a static method 'getRandomNumber
+
+*/
+
+/*
+
+function ac(name:string,cb:(value:string)=>void){
+    // This function takes a name and a callback function as parameters
+    // The callback function is called with the name as an argument
+    cb("hey");
+
+}
+ac("harsh",(value:string)=>{
+    console.log(value);
+})
+
+
+//rest and spread operator
+// The rest operator allows a function to accept an indefinite number of arguments as an array
+function abcde(...args:number[]){
+console.log(args);
+}
+abcde(1,2,3,4,5); // This function can take any number of arguments of type number
+var arr1=[1,2,3,4,5];
+// The spread operator allows an array to be expanded into individual elements
+var arr2=[...arr1];
+console.log(arr2); // This will log the elements of arr1 as individual elements in arr2
+
+
+//function overloading
+function abcds(a:string):void;
+function abcds(a:string,b:number):number;
+function abcds(a:any,b?:number):any{
+    if(typeof a==="string" && b===undefined){
+        console.log(a);
+}
+if(typeof a==="string" && typeof b==="number"){
+    return a+b; // This will return the concatenation of the string and number
+}
+else throw new Error("somethin went wrong");
+}
+abcds("hey");
+abcds("hey",123);
+*/
+
+
+//generic function
+// A generic function allows you to create a function that can work with any data type
+function abcds1<H>(a:H,b:string,c:number){
+
+}
+abcds1<string>("hello","world",123); // This will call the function with a string type for 'a'
+
+interface halua<T>{
+    name:string;
+    price:number;
+    key:T// This method returns a string representation of the object
+}
+function abcdh(obj:halua<string>){}
+abcdh({name :"halua", price: 100, key: "key1"});// This will call the function with an object that has a string type for 'key'
+//typecasting
+// Type casting is used to convert a variable from one type to another
+ let a :any=12;
+(<number>a).toString(); // This will convert 'a' to a string
+(a as number).toString(); // This is another way to do type casting in TypeScript
+console.log(a);
+console.log(typeof a );
